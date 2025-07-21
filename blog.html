@@ -258,7 +258,6 @@
           async function createProductCard(product, category, index) {
                if (!product) return '';
                
-               const exchangeRate = 82; // Фиксированный курс для примера
                const dollarAmount = parseFloat(product.sum.replace('$', '').replace(/\s/g, '').trim());
                const rubleAmount = Math.round(dollarAmount * exchangeRate);
                
@@ -269,7 +268,7 @@
                
                return `
                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
+                    <div class="${cardClass}">
                          <h3 class="product-title">${product.name || 'Товар'}</h3>
                          <div class="product-price">$${dollarAmount || '0'}</div>
                          <div class="product-price-rub">≈ ${rubleAmount} руб</div>
